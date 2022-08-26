@@ -1,0 +1,15 @@
+spring:
+  #Realiza a comunicação entre os microserviços através do name
+  application:
+    name: eurekaserver
+
+#Configurando porta do eureka server
+server:
+  port: 8761
+
+eureka:
+  client:
+    #Inpede o auto-registro do eureka
+    register-with-eureka: false
+    #Impede a busca dos microserviços pelo eureka, pois ele será feito pelo gateway
+    fetch-registry: false
