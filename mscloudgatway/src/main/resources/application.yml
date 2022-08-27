@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: mscloudgateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true #Habilitando o cloud gateway (localizador de microservicos)
+          lower-case-service-id: true #Localizar utilizado o lowercase (caixa baixa)
+
+  server:
+    port:8080
+
+  eureka:
+    client:
+      fetch-registry: true
+      register-with-eureka: true
+      service-url:
+        defaultZone: http://localhost:8761/eureka
