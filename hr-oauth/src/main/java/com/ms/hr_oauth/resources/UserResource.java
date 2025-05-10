@@ -13,18 +13,16 @@ import com.ms.hr_oauth.services.UserService;
 @RestController
 @RequestMapping(value = "/users")
 public class UserResource {
-	
-	@Autowired
-	private UserService service;
-	
-	@GetMapping(value = "/search")
-	public ResponseEntity<User> findByEmail(@RequestParam String email){
-		ResponseEntity<User> obj = service.findByEmail(email);
-		if(obj == null) {
-			return ResponseEntity.notFound().build();
-		}
-		
-		return ResponseEntity.ok().body(obj.getBody());
-	}
 
+    @Autowired
+    private UserService service;
+
+    @GetMapping(value = "/search")
+    public ResponseEntity<User> findByEmail(@RequestParam String email) {
+        User user = service.findByEmail(email);
+        if (user == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(user);
+    }
 }
